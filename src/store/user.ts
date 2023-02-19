@@ -31,6 +31,14 @@ export const useUserStore = defineStore({
         },
         getPermissions():string[]{
             return this.permissions
+        },
+        async getUserInfo():Promise<object>{
+            //判断this.info是否是空对象， 不存在时调用getUser方法
+            if (!this.info?.id) {
+                // const store = useUserStore()
+                await useUserStore().getUser()
+            }
+            return this.info
         }
     },
     actions:{ //给状态设置值

@@ -96,7 +96,7 @@
             // Comment(res)
             message.success('登录成功')
             loading.value = false
-
+            router.push({name:'dashboard'})
             console.log(_res)
           }).catch(()=>{
             loading.value = false
